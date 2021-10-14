@@ -14,37 +14,38 @@
  * 		and make your "LED blink" application code readable and great again!
  */
 
-/* General purpose input output port A macros */
+
 //GPIOA peripheral base address
-#define	GPIOA_BASE_ADDR			(uint32_t)(0x48000000)/* Add GPIO A peripheral base address here. */
+#define	GPIOA_BASE_ADDR			(uint32_t)(0x48000000U)
 //MODER register
-#define	GPIOA_MODER_REG			*(uint32_t*) (GPIOA_BASE_ADDR + 0x00)/* Add moder register address here. */
+#define	GPIOA_MODER_REG			*(uint32_t *)(GPIOA_BASE_ADDR + 0x00U)
 //OTYPER register
-#define	GPIOA_OTYPER_REG		*(uint32_t*) (GPIOA_BASE_ADDR + 0x04)/* Add otyper register address here. */
+#define	GPIOA_OTYPER_REG		*(uint32_t *)(GPIOA_BASE_ADDR + 0x04U)
 //OSPEEDER register
-#define GPIOA_OSPEEDER_REG		*(uint32_t*) (GPIOA_BASE_ADDR + 0x08)/* Add ospeeder register address here. */
+#define GPIOA_OSPEEDER_REG		*(uint32_t *)(GPIOA_BASE_ADDR + 0x08U)
 //PUPDR register
-#define GPIOA_PUPDR_REG			*(uint32_t*) (GPIOA_BASE_ADDR + 0x0C)/* Add pupdr register address here. */
+#define GPIOA_PUPDR_REG			*(uint32_t *)(GPIOA_BASE_ADDR+ 0x0CU)
 //IDR register
-#define GPIOA_IDR_REG			*(uint32_t*) (GPIOA_BASE_ADDR + 0x10)/* Add idr register address here. */
+#define GPIOA_IDR_REG			*(uint32_t *)(GPIOA_BASE_ADDR + 0x10U)
 //ODR register
-#define GPIOA_ODR_REG			*(uint32_t*) (GPIOA_BASE_ADDR + 0x14) /* Add odr register address here. */
+#define GPIOA_ODR_REG			*(uint32_t *)(GPIOA_BASE_ADDR + 0x14U)
 //BSRR register
-#define GPIOA_BSRR_REG			*(uint32_t*) (GPIOA_BASE_ADDR + 0x18)/* Add bsrr register address here. */
+#define GPIOA_BSRR_REG			*(uint32_t *)(GPIOA_BASE_ADDR + 0x18U)
 //BRR register
-#define GPIOA_BRR_REG			*(uint32_t*) (GPIOA_BASE_ADDR + 0x28)/* Add brr register address here. */
+#define GPIOA_BRR_REG			*(uint32_t *)(GPIOA_BASE_ADDR + 0x28U)
+
 
 /*Reset clock control register macros */
 //RCC base address
-#define	RCC_BASE_ADDR			(uint32_t)(0x40021000) -/* Add rcc register address here. */
+#define	RCC_BASE_ADDR			(uint32_t)(0x40021000)
 //AHBEN register
-#define	RCC_AHBENR_REG			*(uint32_t*)(RCC_BASE_ADDR + 0x14U) /*Add ahben register address here. */
+#define	RCC_AHBENR_REG			*(uint32_t *) (uint32_t)(RCC_BASE_ADDR + 0x14U)
 
 /* LED and button macros */
-#define LED_ON					GPIOA_BSRR_REG |= (1 << 4)/* Add LED_ON implementation here. */
-#define LED_OFF					GPIOA_BSRR_REG &= (1 << 20)/* Add LED_OFF implementation here. */
+#define LED_ON				  GPIOA_BSRR_REG |= (1 << 4)
+#define LED_OFF				  GPIOA_BRR_REG |= (1 << 4)
 
-#define BUTTON_GET_STATE		GPIOA_IDR_REG &(1<<3) /* Add BUTTON_GET_STATE implementation here. */
+#define BUTTON_GET_STATE	  GPIOA_IDR_REG & (1 << 3)
 
 
 #endif /* ASSIGNMENT_H_ */
